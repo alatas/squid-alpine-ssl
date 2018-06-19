@@ -1,0 +1,5 @@
+[ v3_req ]
+basicConstraints = CA:FALSE
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+[ v3_ca ]
+keyUsage = cRLSign, keyCertSign
