@@ -1,6 +1,6 @@
 FROM alpine:3.7
 
-LABEL maintainer="alatash@gmail.com"
+LABEL maintainer="alatas@gmail.com"
 
 ENV SSL_BUMP=1 \
     CN=squid.local \
