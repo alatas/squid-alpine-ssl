@@ -7,15 +7,19 @@ SQUID=$(/usr/bin/which squid)
 
 prepare_folders() {
 	echo "Preparing folders..."
+	mkdir -p /etc/squid-cert/
+	mkdir -p /var/cache/squid
+	mkdir -p /var/log/squid/
+	"$CHOWN" -R squid:squid /etc/squid-cert/
 	"$CHOWN" -R squid:squid /var/cache/squid
 	"$CHOWN" -R squid:squid /var/log/squid
 }
 
 initialize_cache() {
 	echo "Creating cache folder..."
-	"$SQUID" -z
+	"$SQUID" -zd 1
 
-	sleep 7
+	sleep 5
 }
 
 create_cert() {
@@ -34,7 +38,7 @@ create_cert() {
 }
 
 clear_certs_db() {
-  echo "Clearing generated certificate db..."
+	echo "Clearing generated certificate db..."
 	rm -rfv /var/lib/ssl_db/
 	/usr/lib/squid/ssl_crtd -c -s /var/lib/ssl_db
 	"$CHOWN" -R squid.squid /var/lib/ssl_db
@@ -42,17 +46,11 @@ clear_certs_db() {
 
 run() {
 	echo "Starting squid..."
-	if [ $SSL_BUMP == "1" ]; then
-		mkdir -p /etc/squid-cert/
-		"$CHOWN" -R squid:squid /etc/squid-cert/
-		create_cert
-    clear_certs_db
-		exec "$SQUID" -NYCd 1 -f /etc/squid/squid-sslbump.conf
-	else
-		exec "$SQUID" -NYCd 1 -f /etc/squid/squid.conf
-	fi
+	prepare_folders
+	create_cert
+	clear_certs_db
+	initialize_cache
+	exec "$SQUID" -NYCd 1 -f /etc/squid/squid.conf
 }
 
-prepare_folders
-initialize_cache
 run
