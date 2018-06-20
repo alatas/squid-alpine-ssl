@@ -8,16 +8,16 @@ SQUID=$(/usr/bin/which squid)
 prepare_folders() {
 	echo "Preparing folders..."
 	mkdir -p /etc/squid-cert/
-	mkdir -p /var/cache/squid
+	mkdir -p /var/cache/squid/
 	mkdir -p /var/log/squid/
 	"$CHOWN" -R squid:squid /etc/squid-cert/
-	"$CHOWN" -R squid:squid /var/cache/squid
-	"$CHOWN" -R squid:squid /var/log/squid
+	"$CHOWN" -R squid:squid /var/cache/squid/
+	"$CHOWN" -R squid:squid /var/log/squid/
 }
 
 initialize_cache() {
 	echo "Creating cache folder..."
-	"$SQUID" -zd 1
+	"$SQUID" -z
 
 	sleep 5
 }
@@ -32,6 +32,9 @@ create_cert() {
 
 		openssl x509 -in /etc/squid-cert/private.pem \
 			-outform DER -out /etc/squid-cert/CA.der
+
+		openssl x509 -inform DER -in /etc/squid-cert/CA.der \
+			-out /etc/squid-cert/CA.pem
 	else
 		echo "Certificate found..."
 	fi
