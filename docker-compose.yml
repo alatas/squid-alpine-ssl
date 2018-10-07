@@ -1,11 +1,7 @@
 version: "3"
 services:
   squid-alpine-ssl:
-    build:
-      context: .
-      args:
-        all_proxy: #set proxy
-    image: alatas/squid-alpine-ssl
+    image: alatas/squid-alpine-ssl:latest
     environment:
       - CN=squid.local
       - O=squid
