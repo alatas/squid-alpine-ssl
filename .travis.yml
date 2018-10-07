@@ -13,6 +13,8 @@ env:
 
 before_script:
   - export TAG=$(echo $TRAVIS_COMMIT_MESSAGE | egrep -o 'r[0-9]+')
+  - echo $TRAVIS_COMMIT_MESSAGE
+  - echo $TAG
 
 script:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
