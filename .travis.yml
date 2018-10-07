@@ -12,8 +12,7 @@ env:
     - REPO_NAME=squid-alpine-ssl
 
 before_script:
-  - export TAG=$(echo $TRAVIS_COMMIT_MESSAGE | egrep -o 'r[0-9]+')
-  - echo $TRAVIS_COMMIT_MESSAGE
+  - export TAG=$(echo $TRAVIS_COMMIT_MESSAGE | egrep -o 'r[0-9]+' | head -1)
   - echo $TAG
 
 script:
