@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM alpine:latest
 
 LABEL maintainer="alatas@gmail.com"
 
@@ -15,8 +15,8 @@ ENV http_proxy=$all_proxy \
     https_proxy=$all_proxy
 
 RUN apk add --no-cache \
-    squid=3.5.27-r0 \
-    openssl=1.0.2p-r0 \
+    squid \
+    openssl \
     ca-certificates && \
     update-ca-certificates
 
