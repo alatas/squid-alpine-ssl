@@ -12,7 +12,7 @@ env:
     - REPO_NAME=squid-alpine-ssl
 
 before_script:
-  - export TAG=$(jq .version release.json)
+  - export TAG=$(jq -r .version release.json)
   - echo $TAG
 
 script:
