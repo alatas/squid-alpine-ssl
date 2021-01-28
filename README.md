@@ -1,4 +1,6 @@
-# Squid on Alpine with SSLBump ![Logo](squid_logo.png)[![Build Status](https://travis-ci.org/alatas/squid-alpine-ssl.svg?branch=master)](https://travis-ci.org/alatas/squid-alpine-ssl)
+# Squid on Alpine with SSLBump ![Logo](squid_logo.png)[![Build Status](https://travis-ci.com/github/ohermosa/squid-alpine-ssl.svg?branch=master)](https://travis-ci.com/github/ohermosa/squid-alpine-ssl)
+
+:information_source: This repository is forked from [alatas/squid-alpine-ssl](https://github.com/alatas/squid-alpine-ssl)
 
 This is one of the side projects that I configure and publish to a Docker image. Fundamentally, I configure Squid on Alpine Linux and add SSLBump feature to Squid in this image.
 
@@ -8,10 +10,10 @@ The SSLBump feature is an optional feature in this image, and use this feature [
 
 ## Quick Start
 
-1. Download the [latest release](https://github.com/alatas/squid-alpine-ssl/releases/latest) and unzip. You may use the command below or do it manually.
+1. Download the [latest release](https://github.com/ohermosa/squid-alpine-ssl/releases/latest) and unzip. You may use the command below or do it manually.
 
 ```shell
-curl -s https://api.github.com/repos/alatas/squid-alpine-ssl/releases/latest | grep "browser_download_url.*docker.zip" | head -1 | cut -d : -f 2,3 | cut -d '"' -f 2 | xargs curl -L -o release.zip ; unzip release.zip ; rm release.zip
+curl -s https://api.github.com/repos/ohermosa/squid-alpine-ssl/releases/latest | grep "browser_download_url.*docker.zip" | head -1 | cut -d : -f 2,3 | cut -d '"' -f 2 | xargs curl -L -o release.zip ; unzip release.zip ; rm release.zip
 ```
 
 2. (Optional) Edit `docker-compose.yml` and `conf/squid.conf` files
