@@ -1,8 +1,10 @@
-# Squid on Alpine with SSLBump ![Logo](squid_logo.png)[![Build Status](https://travis-ci.com/ohermosa/squid-alpine-ssl.svg?branch=master)](https://travis-ci.com/ohermosa/squid-alpine-ssl)
+# Squid on Alpine with SSLBump
+
+[![Build Status](https://travis-ci.com/ohermosa/squid-alpine-ssl.svg?branch=master)](https://travis-ci.com/ohermosa/squid-alpine-ssl)
 
 :information_source: This repository is forked from [alatas/squid-alpine-ssl](https://github.com/alatas/squid-alpine-ssl)
 
-- [Squid on Alpine with SSLBump !Logo[![Build Status](https://travis-ci.com/ohermosa/squid-alpine-ssl.svg?branch=master)](https://travis-ci.com/ohermosa/squid-alpine-ssl)](#squid-on-alpine-with-sslbump-)
+- [Squid on Alpine with SSLBump](#squid-on-alpine-with-sslbump)
   - [Quick Start](#quick-start)
   - [What is Squid?](#what-is-squid)
   - [What is Alpine Linux?](#what-is-alpine-linux)
