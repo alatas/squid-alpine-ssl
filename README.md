@@ -2,11 +2,20 @@
 
 :information_source: This repository is forked from [alatas/squid-alpine-ssl](https://github.com/alatas/squid-alpine-ssl)
 
-This is one of the side projects that I configure and publish to a Docker image. Fundamentally, I configure Squid on Alpine Linux and add SSLBump feature to Squid in this image.
+- [Squid on Alpine with SSLBump !Logo[![Build Status](https://travis-ci.com/ohermosa/squid-alpine-ssl.svg?branch=master)](https://travis-ci.com/ohermosa/squid-alpine-ssl)](#squid-on-alpine-with-sslbump-)
+  - [Quick Start](#quick-start)
+  - [What is Squid?](#what-is-squid)
+  - [What is Alpine Linux?](#what-is-alpine-linux)
+  - [What is SSLBump](#what-is-sslbump)
+  - [Legal Warning](#legal-warning)
+  - [Settings and Folders](#settings-and-folders)
+  - [SSLBump Root Certificate](#sslbump-root-certificate)
 
-The total size of this image is 8MB. You can get up and running this full feature web proxy in a minute or so.
+Fundamentally, I configure Squid 4.13 on Alpine Linux 3.10 and add **SSLBump** feature to **Squid** in this image.
 
-The SSLBump feature is an optional feature in this image, and use this feature [with caution](#legal-warning).
+The total size of this image is 16MB. You can get up and running this full feature web proxy in a minute or so.
+
+The **SSLBump** feature is an optional feature in this image, and use this feature [with caution](#legal-warning).
 
 ## Quick Start
 
