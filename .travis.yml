@@ -7,12 +7,12 @@ services:
 
 env:
   global:
-    - DOCKER_USERNAME=alatas
-    - AUTHOR=alatas
+    - DOCKER_USERNAME=ohermosa
+    - AUTHOR=ohermosa
     - REPO_NAME=squid-alpine-ssl
 
 before_script:
-  - export TAG=$(echo $TRAVIS_COMMIT_MESSAGE | egrep -o 'r[0-9]+' | head -1)
+  - export TAG=$(jq .version release.json)
   - echo $TAG
 
 script:
@@ -33,7 +33,7 @@ before_deploy:
   - mkdir -p $DEPLOY_DOCKER/conf
   - mkdir -p $DEPLOY_DOCKER/log
   - cp -f $TRAVIS_BUILD_DIR/*.yml $DEPLOY_DOCKER
-  - sed -i s/latest/$TAG/g $DEPLOY_DOCKER/docker-compose.yml 
+  - sed -i s/latest/$TAG/g $DEPLOY_DOCKER/docker-compose.yml
   - cp -f $TRAVIS_BUILD_DIR/cache/.placeholder $DEPLOY_DOCKER/cache
   - cp -f $TRAVIS_BUILD_DIR/cert/.placeholder $DEPLOY_DOCKER/cert
   - cp -f $TRAVIS_BUILD_DIR/conf/squid.conf $DEPLOY_DOCKER/conf
@@ -44,7 +44,7 @@ before_deploy:
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
-  file: 
+  file:
     - "$DEPLOY_DOCKER/../$REPO_NAME-$TAG-docker.zip"
   overwrite: true
   skip_cleanup: true
