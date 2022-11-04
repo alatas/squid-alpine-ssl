@@ -43,5 +43,5 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       with:
-        tag_name: "v${{ steps.package_info.outputs.prop }}"
-        release_name: Release v${{ steps.package_info.outputs.prop }}
+        tag_name: "${{ steps.version_info.outputs.prop }}"
+        release_name: Release v${{ steps.version_info.outputs.prop }}
