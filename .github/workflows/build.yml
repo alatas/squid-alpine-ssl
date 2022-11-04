@@ -26,6 +26,17 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USER }}
         password: ${{ secrets.DOCKERHUB_PASS }}
 
+    - name: Build, tag, and push image to Dockerhub
+      env:
+        docker_user: osmollo
+        docker_image: squid-samuel-ssl
+        docker_version: ${{ steps.version_info.outputs.prop }}
+      run: |
+        docker build -t $docker_user/$docker_image:$docker_version .
+        docker push $docker_user/$docker_image:$docker_version
+        docker tag $docker_user/$docker_image:$docker_version $docker_user/$docker_image:latest
+        docker push $docker_user/$docker_image:latest
+
     - name: Create Release
       id: create_release
       uses: actions/create-release@latest
