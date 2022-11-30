@@ -1,7 +1,7 @@
 version: "3"
 services:
   squid-alpine-ssl:
-    image: ohermosa/squid-alpine-ssl:latest
+    image: osmollo/squid-alpine-ssl:latest
     environment:
       - CN=squid.local
       - O=squid
